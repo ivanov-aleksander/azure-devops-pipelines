@@ -9,11 +9,34 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+- stage:
+  displayName: Validation
+  jobs:
+  - job:
+    displayName: Run Validation
+    steps:
+    - script: echo Hello, world!
+      displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    - script: |
+        echo Add other tasks to build, test, and deploy your project.
+        echo See https://aka.ms/yaml
+      displayName: 'Run a multi-line script'
+
+- stage:
+  displayName: Deploy Infra
+  jobs:
+  - job:
+    displayName:
+    strategy:
+      matrix:
+        blob:
+          groupID: "blob"
+        file:
+          groupID: "file"
+        table:
+          groupID: "table"
+    steps:
+    - script: echo Deployed $(groupID)
+      displayName: 'Deploy $(groupID)'
