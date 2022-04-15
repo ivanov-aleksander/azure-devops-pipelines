@@ -28,7 +28,7 @@ stages:
   displayName: Deploy Infra
   jobs:
   - job:
-    displayName:
+    displayName: Deploy Private Endpoint for $(groupID)
     strategy:
       matrix:
         blob:
