@@ -27,7 +27,8 @@ stages:
 - stage:
   displayName: Deploy Private Endpoint
   jobs:
-  - job: Deploy
+  - job: 
+    displayName: Deploy Private Endpoint for
     strategy:
       matrix:
         blob:
