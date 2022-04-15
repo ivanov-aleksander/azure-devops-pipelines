@@ -28,14 +28,14 @@ stages:
   displayName: Deploy Private Endpoint
   jobs:
   - job: 
-    displayName: Deploy Private Endpoint for
+    displayName: Deploy PE for Azure 
     strategy:
       matrix:
-        blob:
+        Blob:
           groupID: "blob"
-        file:
+        Files:
           groupID: "file"
-        table:
+        Table:
           groupID: "table"
     steps:
     - script: echo Deployed $(groupID)
