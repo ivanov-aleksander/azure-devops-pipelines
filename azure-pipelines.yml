@@ -25,10 +25,9 @@ stages:
       displayName: 'Run a multi-line script'
 
 - stage:
-  displayName: Deploy Infra
+  displayName: Deploy Private Endpoint
   jobs:
-  - job:
-    displayName: Deploy Private Endpoint for $(groupID)
+  - job: Deploy
     strategy:
       matrix:
         blob:
